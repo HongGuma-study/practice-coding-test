@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+//소수 찾기
 public class PrimeNumber {
 
     public static void main(String[] args) {
