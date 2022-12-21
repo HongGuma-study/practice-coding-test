@@ -7,17 +7,22 @@ public class WordConversion {
     public static void main(String[] args) {
         solution("hit","cog",new String[]{"hot", "dot", "dog", "lot", "log", "cog"}); //4
         wordList.clear();
+        wordGraph.clear();
         solution("hit","cog",new String[]{"hot", "dot", "dog", "lot", "log"}); //0
         wordList.clear();
+        wordGraph.clear();
         solution("hit","hot",new String[]{"hot", "dot", "dog", "lot", "log"}); //1
         wordList.clear();
+        wordGraph.clear();
         solution("1234567000","1234567899",new String[]{ "1234567800", "1234567890", "1234567899"}); //3
         wordList.clear();
+        wordGraph.clear();
         solution("hit", "cog", new String[]{"cog", "log", "lot", "dog", "hot"}); //4
 
     }
 
     static ArrayList<String> wordList = new ArrayList<>();
+    static HashMap<String,ArrayList<String>> wordGraph = new HashMap<>();
 
     public static int solution(String begin, String target, String[] words) {
         int answer;
@@ -27,6 +32,24 @@ public class WordConversion {
         wordList.addAll(Arrays.asList(words));
         if(!wordList.contains(target)) return 0; //wordList에 target없으면 바로 0
 
+        Collections.sort(wordList);
+        //그래프 노드 생성
+        for(String word : wordList){
+            wordGraph.put(word,new ArrayList<>());
+        }
+
+        //그래프 노드 연결
+        for(String word : wordList){
+            ArrayList<String> edge = new ArrayList<>();
+            for(String w : words){
+                if(equalsWord(word,w) != null)
+                    edge.add(w);
+            }
+            Collections.sort(edge);
+            wordGraph.put(word,edge);
+        }
+
+        System.out.println(wordGraph);
         answer = bfs(begin,target);
 
         System.out.println(answer);
@@ -48,12 +71,12 @@ public class WordConversion {
             if(node.word.equals(target)){
                 return node.step;
             }
-            if(!visited.contains(node)){
+            if(!visited.contains(node.word)){
                 visited.add(node.word);
-                for(String w : wordList){
-                    if(!visited.contains(w) && equalsWord(node.word,w) != null){
+                for(String edge : wordGraph.get(node.word)){
+                    if(!visited.contains(edge)){
                         Node newNode = new Node();
-                        newNode.word = w;
+                        newNode.word = edge;
                         newNode.step = node.step + 1;
                         needVisit.add(newNode);
                     }
