@@ -2,6 +2,7 @@ package programmers.level00;
 
 import java.util.*;
 
+//특이한 문제 풀이
 public class UnusualAlignment {
     public static void main(String[] args) {
         solution(new int[]{1, 2, 3, 4, 5, 6}, 4);

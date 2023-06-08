@@ -2,6 +2,7 @@ package programmers.level00;
 
 import java.util.HashMap;
 
+//최빈값 구하기
 public class FindingTheLeastValue {
     public static void main(String[] args) {
         solution(new int[]{1,2,3,3,3,4});

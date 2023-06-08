@@ -2,8 +2,7 @@ package programmers.level00;
 
 import java.util.Arrays;
 
-import programmers.level00.ClothingStoreDiscount.Solution;
-
+// 그림 확대
 public class ZoomInOnThePicture {
     public static void main(String[] args) {
         solution(new String[]{".xx...xx.", "x..x.x..x", "x...x...x", ".x.....x.", "..x...x..", "...x.x...", "....x...."}, 2);

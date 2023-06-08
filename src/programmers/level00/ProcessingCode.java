@@ -27,7 +27,8 @@ class ProcessingCode{
             }
         }
 
-        System.out.println(answer);
+        if(answer.length() == 0) answer = "EMPTY";
+
         return answer;
     }
 }
