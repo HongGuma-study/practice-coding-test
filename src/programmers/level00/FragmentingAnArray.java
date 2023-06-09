@@ -1,9 +1,8 @@
 package programmers.level00;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
+//배열 조각하기
 public class FragmentingAnArray {
     public static void main(String[] args) {
         solution(new int[]{0,1,2,3,4,5}, new int[]{4,1,2}); // 1,2,3

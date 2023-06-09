@@ -11,8 +11,6 @@ public class FindingTheLeastValue {
     }
 
     public static int solution(int[] array) {
-        int answer = 0;
-
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int n : array){

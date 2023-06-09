@@ -1,9 +1,5 @@
 package programmers.level00;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-
 //안전지대
 public class SafeZone {
     public static void main(String[] args) {
@@ -15,7 +11,6 @@ public class SafeZone {
     static int[][] dir = {{1,0},{1,1},{0,1},{-1,1},{-1,0},{-1,-1},{0,-1},{1,-1}};
     static boolean[][] visited;
     static int[][] boards;
-    static int[][] dist;
     static int N;
     static int M;
 
@@ -24,7 +19,6 @@ public class SafeZone {
         M = board[0].length; //세로
         boards = board;
         visited = new boolean[N][M];
-        dist = new int[N][M];
 
         int answer = N * M;
     
@@ -32,7 +26,7 @@ public class SafeZone {
             for(int j = 0 ; j < M ; j++){
                 if(board[i][j] == 1){
                     answer -= 1; //지뢰 본인 제외
-                    answer -= bfs(i, j); //지뢰 주변 제외
+                    answer -= search(i, j); //지뢰 주변 제외
                 }
             }
         }
@@ -41,7 +35,7 @@ public class SafeZone {
         return answer;
     }
 
-    public static int bfs(int x, int y){
+    public static int search(int x, int y){
         int count = 0;
 
         for(int k = 0 ; k < 8 ; k++){

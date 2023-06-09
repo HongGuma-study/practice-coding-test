@@ -1,6 +1,5 @@
 package programmers.level00;
 
-import java.util.Arrays;
 
 //다항식 더하기
 public class PolynomialAddition {
