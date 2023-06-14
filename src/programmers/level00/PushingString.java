@@ -1,5 +1,6 @@
 package programmers.level00;
 
+//문자열 밀기
 class PushingString{
     public static void main(String[] args) {
         solution("hello", "ohell"); //1
